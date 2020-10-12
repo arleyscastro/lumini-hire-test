@@ -1,0 +1,81 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+@model List<SampleAspNetCoreApp.Data.SampleData>
+
+<div class="alert alert-info" role="alert">
+	Esta página dispara uma chamada de banco de dados[SqLite - LuminiIT.db] e uma chamada HTTP de saída.. <br />
+	O Banco está localizado na raiz do projeto LuminiITAspNetCoreApp, utilizado as tabelas tabelas do padrão <br />
+	AspNetRole, AspNetRoleUser, AspNetRoleLogins, e as demais para fazer acesso de usuários <br />
+	Criado uma tabela simples [SampleTable] com Id, Name, Address, para fazer este CRUD <br />
+	Se o APM.NET Agent estiver ativado, essas duas ações serão capturadas pelo agente e você poderá vê-las no Kibana
+</div>
+
+
+<br />
+
+<section class="content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-header">
+						<h3 class="card-title">Resultado da chamada ao banco de dados</h3>
+					</div>
+					<!-- /.card-header -->
+					<div class="card-body">
+						<div id="divTabela">
+							<table id="example1" class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>NOME</th>
+										<th>ENDEREÇO</th>
+									</tr>
+								</thead>
+								<tbody>
+									@foreach (var um in Model)
+									{
+										<tr>
+											<td>@um.Id</td>
+											<td>@um.Name</td>
+											<td>@um.Address</td>
+										</tr>
+
+									}
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- /.card-body -->
+				</div>
+				<!-- /.card -->
+			</div>
+			<!-- /.col -->
+		</div>
+		<!-- /.row -->
+	</div>
+	<!-- /.container-fluid -->
+</section>
+
+<!-- jQuery -->
+<script src="~/plugins/jquery/jquery.min.js"></script>
+
+
+<!-- DataTables -->
+<script src="~/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="~/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="~/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="~/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+<script>
+		$(function () {
+			$.noConflict();
+			$("#example1").DataTable({
+				"responsive": true,
+				"autoWidth": false,
+			});
+
+		});
+
+</script>

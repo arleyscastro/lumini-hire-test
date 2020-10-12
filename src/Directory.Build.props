@@ -1,0 +1,10 @@
+<Project>
+  <!-- Src Directory Build Properties -->
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+  <PropertyGroup>
+    <AssemblyVersion>1.7.0</AssemblyVersion>
+    <InformationalVersion>1.7.0</InformationalVersion>
+    <FileVersion>1.7.0</FileVersion>
+    <VersionPrefix>1.7.0</VersionPrefix>
+  </PropertyGroup>
+</Project>

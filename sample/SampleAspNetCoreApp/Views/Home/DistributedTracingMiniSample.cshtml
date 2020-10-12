@@ -1,0 +1,63 @@
+﻿@model List<string>
+
+<section class="content-header">
+	<div class="container-fluid">
+		<div class="row mb-2">
+			<div class="col-sm-6">
+				<h1>Rastreamento distribuído</h1>
+			</div>
+			<div class="col-sm-6">
+				<ol class="breadcrumb float-sm-right">
+					<li class="breadcrumb-item"><a href='@Url.Action("Index", "Home")@ViewBag.idUsr'>Home</a></li>
+					<li class="breadcrumb-item active">Rastreamento distribuído</li>
+				</ol>
+			</div>
+		</div>
+	</div><!-- /.container-fluid -->
+</section>
+
+<div class="alert alert-info" role="alert">
+	Este exemplo demonstra o suporte de rastreamento distribuído. O aplicativo cria uma solicitação HTTP GET para localhost: 5050. No caso de WebApiSample
+	Após escutar na URL você verá alguns valores do exemplo de API Web abaixo. Neste caso, o agente ira criar um rastreamento que poderá ser visto no Kibana
+	que os dois aplicativos estão conectados.
+</div>
+
+
+<section class="content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-header">
+						<h3 class="card-title">Dados do servico WebApiSample</h3>
+					</div>
+					<!-- /.card-header -->
+					<div class="card-body">
+
+						@if (ViewData["Fail"] == null)
+						{
+							<ul>
+								@{ foreach (var item in Model)
+									{
+										<li>@item</li>
+									 } 
+								}
+							</ul> 
+						}
+						else
+						{
+							@ViewData["Fail"];
+						}
+
+
+					</div>
+					<!-- /.card-body -->
+				</div>
+				<!-- /.card -->
+			</div>
+			<!-- /.col -->
+		</div>
+		<!-- /.row -->
+	</div>
+	<!-- /.container-fluid -->
+</section>

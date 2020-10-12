@@ -1,0 +1,75 @@
+﻿<nav class="mt-2">
+	<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+		<!-- Add icons to the links using the .nav-icon class
+	with font-awesome or any other icon font library -->
+		<!--
+
+	-->
+		<li class="nav-item has-treeview">
+			<a href="#" class="nav-link">
+				<i class="nav-icon fas fa-edit"></i>
+				<p>
+					Principal<i class="fas fa-angle-left right"></i>
+				</p>
+			</a>
+			<ul class="nav nav-treeview">
+
+				<li class="nav-item">
+					<a href='@Url.Action("SimplePage", "Home")' class="nav-link">
+						<i class="far fa-circle nav-icon"></i>
+						<p>Apresentação</p>
+					</a>
+				</li>
+
+
+				<li class="nav-item">
+					<a href='@Url.Action("Index", "Home")' class="nav-link">
+						<i class="far fa-circle nav-icon"></i>
+						<p>Tela principal</p>
+					</a>
+				</li>
+
+				<li class="nav-item">
+					<a href='@Url.Action("AddSampleData", "Home")' class="nav-link">
+						<i class="far fa-circle nav-icon"></i>
+						<p>Inserir exemplo no BD</p>
+					</a>
+				</li>
+
+				<li class="nav-item">
+					<a href='@Url.Action("ChartPage", "Home")' class="nav-link">
+						<i class="far fa-circle nav-icon"></i>
+						<p>Dashboard com Gráfico</p>
+					</a>
+				</li>
+
+				<li class="nav-item">
+					<a href='@Url.Action("DistributedTracingMiniSample", "Home")' class="nav-link">
+						<i class="far fa-circle nav-icon"></i>
+						<p>Rastreamento distribuído</p>
+					</a>
+				</li>
+
+				<li class="nav-item">
+					<a href='@Url.Action("Register", "Account")' class="nav-link">
+						<i class="far fa-circle nav-icon"></i>
+						<p>Registrar</p>
+					</a>
+				</li>
+
+				<li class="nav-item">
+					<a href='@Url.Action("Login", "Account")' class="nav-link">
+						<i class="far fa-circle nav-icon"></i>
+						<p>Login</p>
+					</a>
+				</li>
+
+
+
+			</ul>
+		</li>
+
+
+
+	</ul>
+</nav>

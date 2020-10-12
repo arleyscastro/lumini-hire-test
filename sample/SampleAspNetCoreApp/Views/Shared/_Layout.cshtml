@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Lumini IT</title>
+
+	<!-- Font Awesome Icons -->
+	<link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
+	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<!-- DataTables -->
+	<link rel="stylesheet" href="~/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" href="~/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+	<!-- SweetAlert2 -->
+	<link rel="stylesheet" href="~/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+	<!-- Toastr -->
+	<link rel="stylesheet" href="~/plugins/toastr/toastr.min.css">
+	<!-- Theme style -->
+	<link rel="stylesheet" href="~/dist/css/adminlte.min.css">
+	<!-- Google Font: Source Sans Pro -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+	<!-- Select2 -->
+	<link rel="stylesheet" href="~/plugins/select2/css/select2.min.css">
+	<link rel="stylesheet" href="~/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+	<style type="text/css">
+		.select2-selection__rendered {
+			line-height: 35px !important;
+		}
+
+		.select2-container .select2-selection--single {
+			height: 40px !important;
+		}
+
+		.select2-selection__arrow {
+			height: 39px !important;
+		}
+
+		.select2 {
+			width: 100% !important;
+		}
+	</style>
+</head>
+<body class="hold-transition sidebar-mini">
+
+
+	<div class="wrapper">
+
+		<!-- Navbar -->
+		<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+			<!-- Left navbar links -->
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+				</li>
+			</ul>
+
+			<!-- SEARCH FORM -->
+			<form class="form-inline ml-3">
+				<div class="input-group input-group-sm">
+					<input class="form-control form-control-navbar" type="search" placeholder="Buscar um item do menu" aria-label="Search">
+					<div class="input-group-append">
+						<button class="btn btn-navbar" type="submit">
+							<i class="fas fa-search"></i>
+						</button>
+					</div>
+				</div>
+			</form>
+
+
+		</nav>
+		<!-- /.navbar -->
+		<!-- Main Sidebar Container -->
+		<aside class="main-sidebar sidebar-dark-primary elevation-4">
+			<!-- Brand Logo -->
+			<a href="https://luminiitsolutions.com/" class="brand-link">
+				<img src="~/dist/img/logo_lumini340x120px.png" alt="Logo" class="brand-image img-circle elevation-3"
+					 style="opacity: .8">
+				<span class="brand-text font-weight-light">.</span>
+			</a>
+
+			<!-- Sidebar -->
+			<div class="sidebar">
+				<!-- Sidebar user panel (optional) -->
+				<!-- Sidebar Menu -->
+				@Html.Partial("_MainMenu")
+
+				<!-- /.sidebar-menu -->
+			</div>
+			<!-- /.sidebar -->
+		</aside>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+
+			<!-- Main content -->
+			<div class="content">
+
+				@RenderBody()
+
+			</div>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Control sidebar content goes here -->
+			<div class="p-3">
+				<h5>Title</h5>
+				<p>Sidebar content</p>
+			</div>
+		</aside>
+		<!-- /.control-sidebar -->
+		<!-- Main Footer -->
+		<footer class="main-footer">
+			<!-- To the right -->
+			<div class="float-right d-none d-sm-inline">
+				Lumini IT
+			</div>
+			<!-- Default to the left -->
+			<strong>Copyright &copy; 2020.</strong> Todos os direitos reservados Lumini IT.
+		</footer>
+	</div>
+
+
+
+	<!-- ./wrapper -->
+	<!-- REQUIRED SCRIPTS -->
+	<!-- jQuery -->
+	<script src="~/plugins/jquery/jquery.min.js"></script>
+
+	<!-- Bootstrap 4 -->
+	<script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- DataTables -->
+	<script src="~/plugins/datatables/jquery.dataTables.min.js"></script>
+	<script src="~/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+	<script src="~/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+	<script src="~/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+	<!-- SweetAlert2 -->
+	<script src="~/plugins/sweetalert2/sweetalert2.min.js"></script>
+	<!-- Toastr -->
+	<script src="~/plugins/toastr/toastr.min.js"></script>
+
+	<!-- AdminLTE App -->
+	<script src="~/dist/js/adminlte.min.js"></script>
+	<!-- Select2 -->
+	<script src="~/plugins/select2/js/select2.full.min.js"></script>
+
+	<script type="text/javascript" src="~/plugins/jQuery-Mask/jquery.mask.min.js"></script>
+
+
+	@RenderSection("Scripts", required: false)
+
+</body>
+
+<script>
+	$(function () {
+		//Initialize Select2 Elements
+		if (document.querySelectorAll('.select2')) {
+			$('.select2').select2();
+		}
+
+	});
+
+	$(window).on("load", function (e) {
+		/** add active class and stay opened when selected */
+		var url = window.location;
+
+		// for sidebar menu entirely but not cover treeview
+		$('ul.nav-sidebar a').filter(function () {
+			return this.href == url;
+		}).addClass('active');
+
+		// for treeview
+		$('ul.nav-treeview a').filter(function () {
+			return this.href == url;
+		}).parentsUntil(".nav-sidebar > .nav-treeview").addClass('menu-open').prev('a').addClass('active');
+	});
+
+	function mascaraData(val) {
+		var pass = val.value;
+		var expr = /[0123456789]/;
+		var i;
+		var tst1, tst2;
+		for (i = 0; i < pass.length; i++) {
+			var lchar = val.value.charAt(i);
+			var nchar = val.value.charAt(i + 1);
+
+			if (i === 0) {
+				if ((lchar.search(expr) !== 0) || (lchar > 3)) {
+					val.value = "";
+				}
+
+			} else if (i === 1) {
+
+				if (lchar.search(expr) !== 0) {
+					tst1 = val.value.substring(0, (i));
+					val.value = tst1;
+					continue;
+				}
+
+				if ((nchar !== '/') && (nchar !== '')) {
+					tst1 = val.value.substring(0, (i) + 1);
+
+					if (nchar.search(expr) !== 0)
+						tst2 = val.value.substring(i + 2, pass.length);
+					else
+						tst2 = val.value.substring(i + 1, pass.length);
+
+					val.value = tst1 + '/' + tst2;
+				}
+
+			} else if (i === 4) {
+
+				if (lchar.search(expr) !== 0) {
+					tst1 = val.value.substring(0, (i));
+					val.value = tst1;
+					continue;
+				}
+
+				if ((nchar !== '/') && (nchar !== '')) {
+					tst1 = val.value.substring(0, (i) + 1);
+
+					if (nchar.search(expr) !== 0)
+						tst2 = val.value.substring(i + 2, pass.length);
+					else
+						tst2 = val.value.substring(i + 1, pass.length);
+
+					val.value = tst1 + '/' + tst2;
+				}
+			}
+
+			if (i >= 6) {
+				if (lchar.search(expr) !== 0) {
+					tst1 = val.value.substring(0, (i));
+					val.value = tst1;
+				}
+			}
+		}
+
+		if (pass.length > 10)
+			val.value = val.value.substring(0, 10);
+		return true;
+	}
+
+
+	function filtroTeclas(e) {
+		var charCode = e.charCode ? e.charCode : e.keyCode;
+		// charCode 8 = backspace
+		// charCode 9 = tab
+		if (charCode != 8 && charCode != 9) {
+			// charCode 48 equivale a 0
+			// charCode 57 equivale a 9
+			if (charCode < 48 || charCode > 57) {
+				return false;
+			}
+		}
+	}
+
+	function filtroTeclasComVirgula(e) {
+		var charCode = e.charCode ? e.charCode : e.keyCode;
+		// charCode 8 = backspace
+		// charCode 9 = tab
+		if (charCode != 8 && charCode != 9) {
+			// charCode 48 equivale a 0
+			// charCode 57 equivale a 9
+			if (charCode != 44 && charCode < 48 || charCode > 57) {
+				return false;
+			}
+		}
+	}
+</script>
+</html>
+
